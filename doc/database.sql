@@ -58,7 +58,7 @@ CREATE TABLE `translations` (
 --
 
 INSERT INTO `translations` (`translation_id`, `phrase`, `language`, `translation`, `controller`, `action`) VALUES
-(1, 'Action', 'en', '{untranslated}', 'welcome', 'index'),
+(1, 'Action', 'en', '{untranslated}', 'posts', 'index'),
 (2, 'Server returned response in an unexpected format', 'en', '{untranslated}', 'global', 'global'),
 (3, 'Forbidden', 'en', '{untranslated}', 'global', 'global'),
 (4, 'Server returned an error', 'en', '{untranslated}', 'global', 'global'),
@@ -67,7 +67,7 @@ INSERT INTO `translations` (`translation_id`, `phrase`, `language`, `translation
 (7, 'Settings', 'en', '{untranslated}', 'global', 'global'),
 (8, 'Logged in as', 'en', '{untranslated}', 'global', 'global'),
 (9, 'Log out', 'en', '{untranslated}', 'global', 'global'),
-(10, 'Action', 'et', '{untranslated}', 'welcome', 'index'),
+(10, 'Action', 'et', '{untranslated}', 'posts', 'index'),
 (11, 'Log out', 'et', '{untranslated}', 'global', 'global'),
 (12, 'Server returned response in an unexpected format', 'et', '{untranslated}', 'global', 'global'),
 (13, 'Forbidden', 'et', '{untranslated}', 'global', 'global'),
