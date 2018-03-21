@@ -3,11 +3,10 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 21, 2018 at 09:06 AM
+-- Generation Time: Mar 21, 2018 at 12:13 PM
 -- Server version: 10.1.26-MariaDB-0+deb9u1
 -- PHP Version: 7.0.27-0+deb9u1
 
-SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
@@ -31,11 +30,18 @@ CREATE TABLE `post` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- RELATIONS FOR TABLE `post`:
+--   `user_id`
+--       `users` -> `user_id`
+--
+
+--
 -- Dumping data for table `post`
 --
 
 INSERT INTO `post` (`post_id`, `post_subject`, `post_text`, `post_created`, `user_id`) VALUES
-(1, 'proov', 'See on prooviks', '2018-03-19 10:22:53', 1);
+(1, 'proov', 'See on prooviks', '2018-03-19 10:22:53', 1),
+(2, 'Text', 'See on uus test', '2018-03-21 09:16:11', 1);
 
 -- --------------------------------------------------------
 
@@ -54,11 +60,15 @@ CREATE TABLE `translations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- RELATIONS FOR TABLE `translations`:
+--
+
+--
 -- Dumping data for table `translations`
 --
 
 INSERT INTO `translations` (`translation_id`, `phrase`, `language`, `translation`, `controller`, `action`) VALUES
-(1, 'Action', 'en', '{untranslated}', 'posts', 'index'),
+(1, 'Action', 'en', '{untranslated}', 'welcome', 'index'),
 (2, 'Server returned response in an unexpected format', 'en', '{untranslated}', 'global', 'global'),
 (3, 'Forbidden', 'en', '{untranslated}', 'global', 'global'),
 (4, 'Server returned an error', 'en', '{untranslated}', 'global', 'global'),
@@ -67,7 +77,7 @@ INSERT INTO `translations` (`translation_id`, `phrase`, `language`, `translation
 (7, 'Settings', 'en', '{untranslated}', 'global', 'global'),
 (8, 'Logged in as', 'en', '{untranslated}', 'global', 'global'),
 (9, 'Log out', 'en', '{untranslated}', 'global', 'global'),
-(10, 'Action', 'et', '{untranslated}', 'posts', 'index'),
+(10, 'Action', 'et', '{untranslated}', 'welcome', 'index'),
 (11, 'Log out', 'et', '{untranslated}', 'global', 'global'),
 (12, 'Server returned response in an unexpected format', 'et', '{untranslated}', 'global', 'global'),
 (13, 'Forbidden', 'et', '{untranslated}', 'global', 'global'),
@@ -83,7 +93,8 @@ INSERT INTO `translations` (`translation_id`, `phrase`, `language`, `translation
 (23, 'Wrong username or password', 'en', '{untranslated}', 'global', 'global'),
 (24, 'Oops...', 'en', '{untranslated}', 'global', 'global'),
 (25, 'Close', 'en', '{untranslated}', 'global', 'global'),
-(26, 'Server returned an error. Please try again later ', 'en', '{untranslated}', 'global', 'global');
+(26, 'Server returned an error. Please try again later ', 'en', '{untranslated}', 'global', 'global'),
+(27, 'Action', 'en', '{untranslated}', 'global', 'global');
 
 -- --------------------------------------------------------
 
@@ -100,6 +111,10 @@ CREATE TABLE `users` (
   `deleted` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
   `name` varchar(191) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- RELATIONS FOR TABLE `users`:
+--
 
 --
 -- Dumping data for table `users`
@@ -140,12 +155,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `post_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `post_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `translations`
 --
 ALTER TABLE `translations`
-  MODIFY `translation_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `translation_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT for table `users`
 --
@@ -160,4 +175,3 @@ ALTER TABLE `users`
 --
 ALTER TABLE `post`
   ADD CONSTRAINT `post_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
-SET FOREIGN_KEY_CHECKS=1;
